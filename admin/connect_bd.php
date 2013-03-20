@@ -6,8 +6,8 @@ class connect_bd{
 		/*
 		$host = 'jacknl-db.my.phpcloud.com:3306';
 		$usuario = 'jacknl';
-		$senha = 'pr12345';
-		$banco_dados = 'jacknl';
+		$senha = '';
+		$banco_dados = '';
 		*/
 		
 		$host = 'localhost';
@@ -17,11 +17,11 @@ class connect_bd{
 		$db = '';
 		
 		if(!($db = mysql_connect($host,$usuario,$senha))){ //erro na coneccao com o bd
-			return 'Ocorreu um erro na conecção com o Banco de Dados';
+			return 'Ocorreu um erro na conecï¿½ï¿½o com o Banco de Dados';
 		}
 		
 		if(!(mysql_select_db($banco_dados, $db))){ //erro na coneccao com a tabela do bd
-			return 'Ocorreu um erro na conecção com a tabela do Banco de Dados';
+			return 'Ocorreu um erro na conecï¿½ï¿½o com a tabela do Banco de Dados';
 			mysql_close($db);
 		}
 		
@@ -29,11 +29,11 @@ class connect_bd{
 	}
 	
 	public static function error(){
-		return 'Ocorreu um erro na execução da query no Banco de dados';
+		return 'Ocorreu um erro na execuï¿½ï¿½o da query no Banco de dados';
 	}
 	
 	public static function erro(){
-		return 'Ocorreu um erro inesperado em relação ao Banco de dados';
+		return 'Ocorreu um erro inesperado em relaï¿½ï¿½o ao Banco de dados';
 	}
 	
 }
