@@ -324,6 +324,11 @@ else{
 		</tr>
 		<?php }?>
 		<tr>
+			<td style="font-size: 13px;">
+				<input class="remover" type="button" onclick="confirm('Sr(a) <?php echo $_SESSION['usuario']['nome'];?>, tem certeza que deseja remover a sua conta permanentemente.') ? window.location.href='remover.php': '';" name="alterar" value="Remover Conta">
+			</td>
+		</tr>
+		<tr>
 			<td style="font-size: 13px;">* Campos Obrigatórios</td>
 			<td>
 				<input class="botao" type="submit" name="alterar" value="Alterar">
