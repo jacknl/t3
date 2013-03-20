@@ -1,0 +1,341 @@
+@CHARSET "ISO-8859-1";
+
+::-webkit-scrollbar{
+	height: 12px;
+	overflow: visible;
+	width: 12px;
+}
+
+::-webkit-scrollbar-thumb{
+	background-color: #AAA;
+	background-clip: padding-box;
+	border: solid transparent;
+	border-width: 2px;
+	min-height: 28px;
+}
+
+::-webkit-scrollbar-thumb:HOVER{
+	background-color: #666;	
+}
+
+body{
+	background: url("../img/background.png") #111;
+	margin: 0px;
+	font-family: Verdana;
+	font-size: 16px;
+	color: #111;
+}
+
+.top{
+	min-width: 1100px;
+	width: 100%;
+	height: 130px;
+	/*background-color: #DDD;*/
+	margin: auto;
+	overflow: hidden;
+}
+
+.top .icon_top{
+	width: 100%;
+	min-width: 1100px;
+	height: 130px;
+	position: relative;
+	background: url("../img/top.png") #000;
+	float: left;
+}
+
+.top .menu_top{
+	width: 100%;
+	min-width: 1100px;
+	height: 60px;
+	position: relative;
+	background: #999;
+	overflow: hidden;
+	float: left;
+	z-index: 10;
+}
+
+.menu_top_borda{
+	min-width: 1100px;
+	width: 100%;
+	height: 9px;
+	position: relative;
+	border-bottom: 1px solid #000;
+	float: left;
+	z-index: 10;
+	background: url("../img/top.png") #000;
+	box-shadow: 0px -3px 15px #000;
+	-webkit-box-shadow: 0px -4px 20px #000, 0px 1px 5px #000;
+	-moz-box-shadow: 0px -4px 20px #000, 0px 1px 5px #000;
+	-o-box-shadow: 0px -4px 20px #000, 0px 1px 5px #000;
+	-ms-box-shadow: 0px -4px 20px #000, 0px 1px 5px #000;
+}
+
+.top .icon{
+	position: relative;	
+	width: 1100px;
+	color: #DDD;
+	height: 130px;
+	margin: auto;
+	background: url("../img/top.png") #000;
+}
+
+.top .icon img{
+	height: 100px;
+	width: 150px;
+	margin: 15px 10px;
+	border: none;
+}
+
+.top .icon>p{
+	position: absolute;
+	bottom: 0px;
+	left: 120px;
+	font-size: 20px;
+	margin: 15px 0px;
+}
+
+.top .icon .login{
+	float: right;
+	width: 280px;
+	margin: 10px;
+	position: relative;
+}
+
+.top .icon .login table{
+	float: right;
+	border-collapse: collapse;
+}
+
+.top .icon .login table input{
+	background-color: #666;
+	border: none;
+	padding: 5px;
+	margin: 5px 0px;
+	height: 15px;
+	width: 140px;
+	color: #DDD;
+	font-size: 15px;
+	font-family: Myriad Pro;
+}
+
+.top .icon .login table td{
+	min-width: 80px;
+}
+
+.top .icon .login .logar{
+	width: 76px;
+	height: 21px;
+	border: 1px solid #DDD;
+	text-align: center;
+	background-color: #333;
+	cursor: pointer;
+	float: right;
+	margin: 7px 0px 7px 5px;
+	padding: 1px;
+	font-size: 14px;
+}
+
+.top .icon .login .logar:HOVER{
+	background-color: #555;
+}
+
+.top .icon .login>a{
+	font-size: 11px;
+	margin: 12px 5px;
+	display: table;
+	float: right;
+	cursor: pointer;
+	color: #DDD;
+}
+
+.top .menu{
+	color: #DDD;
+	height: 60px;
+	background-color: #999;
+	width: 1100px;
+	margin: auto;
+	position: relative;
+}
+
+.top .login .nome{
+	float: right;
+	margin: 10px 10px 0px 0px;
+	padding: 4px 5px;
+	height: 20px;
+	cursor: pointer;
+	background: #555;
+	max-width: 170px;
+	overflow: hidden;
+	font-size: 17px;
+	cursor: auto;
+}
+
+.top .login .opcoes{
+	height: 28px;
+	overflow: hidden;
+	float: right;
+	margin-top: 10px;
+}
+
+.top .login .opcoes:HOVER{
+	height: 100%;	
+}
+
+.top .login .opcoes>p{
+	margin: 0px;
+	padding: 5px 25px 5px 5px;
+	height: 18px;
+	cursor: pointer;
+	background: url("../img/seta_baixo.png") transparent no-repeat right;
+	font-size: 15px;
+}
+
+.top .login .opcoes>p:HOVER{
+	background-color: #444 !important;
+}
+
+.top .login .opcoes table{
+	border-collapse: collapse;
+	background-color: #D7D7D7;	
+	border: 4px solid #111;
+	display: none;
+	position: absolute;
+	right: 0px;
+	z-index: 11;
+	color: #444;
+	margin: 0px;
+	padding: 0px;
+}
+
+.top .login .opcoes tbody{
+	display: block;
+	padding: 5px;
+}
+
+.top .login .opcoes table td{
+	padding: 0px;
+	height: 25px;
+	min-width: 20px !important;
+}
+
+.top .login .opcoes table td:FIRST-CHILD{
+	padding: 0px;
+}
+
+.top .login .opcoes table tr{	
+	height: 18px;
+	border-left: 5px solid #D7D7D7;
+}
+
+.top .login .opcoes table tr:HOVER{	
+	border-left: 5px solid #111;
+}
+
+.top .login .opcoes table td:HOVER a{
+	color: #000;
+}
+
+.top .login .opcoes table a{
+	margin: 0px 5px;
+	padding: 5px;
+	height: 18px;
+	cursor: pointer;
+	text-align: left;
+	white-space: nowrap;
+	color: #444;
+	text-decoration: none;
+	display: table;
+	width: 100%;
+	font-size: 15px;
+}
+
+.top .menu .pesquisa{
+	padding: 4px 5px;
+	height: 20px;
+	width: 228px;
+	border: 1px solid #FFF;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 15px;
+	background-color: #666;
+	color: #EEE;
+}
+
+.top .menu img{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 19px 20px 19px 0px;
+	cursor: pointer;
+}
+	
+.conteudo{
+	margin: 0px auto;
+	width: 1100px;
+	display: table;
+}
+
+.conteudo>div{
+	background-color: #DDD;
+	width: 1050px;
+	margin: 0px 15px;
+	display: table;
+	height: 0px;
+	padding: 0px 10px;
+	position: relative;
+	box-shadow: 0 0 15px #000;
+	-webkit-box-shadow: 0 0 15px #000;
+	-moz-box-shadow: 0 0 15px #000;
+	-o-box-shadow: 0 0 15px #000;
+	-ms-box-shadow: 0 0 15px #000;
+}
+
+.conteudo>div>.titulo{	
+	font-size: 35px;
+	margin: 0px auto;
+	padding: 15px 10px;
+	display: table;
+	font-weight: bold;
+}
+
+.conteudo .mensagemOk{
+	margin: auto;
+	display: table;
+	padding: 15px;
+	border: 3px solid #008C00;
+	color: #008C00;
+}
+
+.conteudo .mensagemErro{
+	margin: auto;
+	display: table;
+	padding: 15px;
+	border: 3px solid #D90000;
+	color: #D90000;
+}
+
+.rodape{
+	height: 40px;
+	max-width: 100%;
+	background-color: #222;
+	box-shadow: 0 -1px 10px #000;
+	-webkit-box-shadow: 0 -1px 10px #000;
+	-moz-box-shadow: 0 -1px 10px #000;
+	-o-box-shadow: 0 -1px 10px #000;
+	-ms-box-shadow: 0 -1px 10px #000;
+	z-index: 13;
+	position: relative;
+	bottom: 0px;
+}
+
+.rodape div{
+	background-color: #222;	
+	height: 16px;
+	width: 1050px;
+	padding: 12px 25px;
+	margin: 0px auto;
+	color: #999;
+	font-size: 12px;
+}

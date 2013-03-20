@@ -1,0 +1,48 @@
+@CHARSET "ISO-8859-1";
+
+.conteudo form>table{
+	margin: 10px auto;
+	font-size: 20px;
+	border-collapse: collapse;
+}
+
+.conteudo form>table td{
+	padding: 10px;
+	color: #222;
+	height: 18px;
+}
+
+.conteudo form>table td>input, .conteudo form>table td>textarea{
+	padding: 10px;
+	border: 1px solid #666;
+	background-color: #666;
+	color: #FFF;
+	font-size: 14px;
+	margin: 0px;
+}
+
+.conteudo form>table .pc{
+	background-color: #CCC;
+	display: none;
+}
+
+.conteudo form>table .erro{
+	font-size: 11px;
+	color: #D90000;
+	font-weight: normal;
+	margin: 2px;
+}
+
+.conteudo form>table td>.botao{
+	float: right;
+	font-size: 18px;
+	padding: 10px 14px;
+	background-color: #333;
+	cursor: pointer;
+	border: 1px solid #000;
+	margin: 10px 0px;
+}
+
+.ui-datepicker{
+	font-size: 14px;
+}
