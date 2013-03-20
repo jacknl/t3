@@ -68,16 +68,13 @@ if(isset($_POST['alterar'])){
 				'serie' => strlen($dados['serie']) == 0 ? 'NULL' : $dados['serie']
 			));
 			
-			//id do jogo adicionado
-			$idJogo = Jogo::ultimoId();
-			
 			//edita a(s) desenvolvedora(s) do jogo
 			$tmp = explode(',', $dados['desenvolvedora']);
-			Controi::editMulti($idJogo, $_SESSION['jogo'][$codigo]['desenvolvedora'], $tmp);
+			Controi::editMulti($codigo, $_SESSION['jogo'][$codigo]['desenvolvedora'], $tmp);
 			
 			//edita a(s) plataforma(s) do jogo
 			$tmp = explode(',', $dados['plataforma']);
-			Organizar::editMulti($idJogo, $_SESSION['jogo'][$codigo]['plataforma'], $tmp);
+			Organizar::editMulti($codigo, $_SESSION['jogo'][$codigo]['plataforma'], $tmp);
 			
 			//verifica se a opcao a suporte ao Computador foi abilitada
 			$aux = false;
@@ -91,16 +88,16 @@ if(isset($_POST['alterar'])){
 			//caso a opcao Computador estaja marcada
 			if($aux){
 				//edita os requisitos do jogo
-				Pc::edit($idJogo, array('requisitos_minimos' => $dados['requisitos_minimos'], 'requisitos_recomendados' => $dados['requisitos_recomendados']));
+				Pc::edit($codigo, array('requisitos_minimos' => $dados['requisitos_minimos'], 'requisitos_recomendados' => $dados['requisitos_recomendados']));
 				
 				//edita os sistemas operacionais suportados
 				$tmp = explode(',', $dados['so']);
-				Executa::editMulti($idJogo, $_SESSION['jogo'][$codigo]['so'], $tmp);
+				Executa::editMulti($codigo, $_SESSION['jogo'][$codigo]['so'], $tmp);
 			}
 			
 			//cadastrado com sucesso
 			$editar = true;
-			//$_POST = array();
+			unset($_SESSION['jogo']);
 		}
 	}
 }

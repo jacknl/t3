@@ -184,4 +184,5 @@ $(document).ready(function(){
 	$('.top .menu .pesquisa').keypress(function(e){
 		if(e.which == 13) index.pesquisar();
 	});
+	
 });

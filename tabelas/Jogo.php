@@ -76,5 +76,21 @@ class Jogo{
 		mysql_close($con);
 	}
 	
+	public static function ultimosJogosByPlataforma($plataforma){
+		$con = connect_bd::connect();
+		if(!$con) return $con;
+	
+		if($query = mysql_query(
+				"SELECT jogo.nome, jogo.codigo FROM `jogo`
+				JOIN organizar ON jogo.codigo = organizar.jogo
+				JOIN plataforma ON plataforma.id = organizar.plataforma
+				WHERE plataforma.abreviacao= '$plataforma'
+				ORDER BY `data_lancamento` DESC 
+				LIMIT 5")) return $query;
+		else return connect_bd::error();
+			
+		mysql_close($con);
+	}
+	
 }
 ?>

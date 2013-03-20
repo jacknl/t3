@@ -81,6 +81,7 @@ body{
 }
 
 .top .icon img{
+	opacity: 1 !important;
 	height: 100px;
 	width: 150px;
 	margin: 15px 10px;
@@ -248,6 +249,27 @@ body{
 	display: table;
 	width: 100%;
 	font-size: 15px;
+}
+
+.top .menu a{
+	margin-left: 20px;
+	margin-top: 9px;
+	text-decoration: none;
+	color: #000;
+	font-size: 18px;
+	font-weight: bold;
+	height: 20px;
+	padding: 6px 15px;
+	display: table;
+	border-top: 3px solid #111;
+	border-bottom: 3px solid #111;
+	float: left;
+}
+
+.top .menu .aba_selecionada, .top .menu a:HOVER{
+	border-top: 3px solid #EEE;
+	border-bottom: 3px solid #EEE;	
+	color: #EEE;	
 }
 
 .top .menu .pesquisa{
