@@ -1,18 +1,22 @@
 var index = {};
 var menu = false;
 
+//quando der enter no campo pesquisar, redimensiona para a paguina de pesquisa
 index.pesquisar = function(){
-	if($('.top .menu .pesquisa').val())	window.location.href = '../index/index.php?q=' + $('.top .menu .pesquisa').val();
+	if($('.top .menu .pesquisa').val())	window.location.href = '../index/pequisar.php?q=' + $('.top .menu .pesquisa').val();
 };
 
+//tira a trasparencia da aba de ocpcoes quando o input de pesquisa for selecionado
 index.menuOver = function(){
 	if(menu) $('.top .menu_top, .menu_top_borda').css({'opacity': '1'});
 };
 
+//coloca a trasparencia da aba de opcoes quando o input de pesquisa for seleciona
 index.menuLeave = function(){
-	if(menu) $('.top .menu_top, .menu_top_borda').css({'opacity': '0.8'});
+	if(menu) $('.top .menu_top, .menu_top_borda').css({'opacity': '0.9'});
 };
 
+//deixa a aba de opcoes fixa no topo da janela do navegador
 index.ajustaMenu = function(){
 	if($(document).scrollTop() > 130){
 		$('.top .menu_top').css({
@@ -42,7 +46,7 @@ index.ajustaMenu = function(){
 	}
 };
 
-//ajusta o tamanho minimo para a div .conteudo
+//ajusta a altura minima do site de acordo com a altura do janela do navegador
 index.ajustaConteudo = function(){
 	$('.conteudo>div').css({'min-height': $(window).height() - 240});
 };
@@ -58,7 +62,7 @@ index.logar = function(){
         }
     }).done(function(data){
     	if(data != null && data.nome != undefined && data.links != undefined){
-    		//tira os campos de login e insere as opcoes
+    		//tira os campos de login e insere as opcoes do usuario
     		var html = '<div class="opcoes">\
     						<p style="background-image: url(\'../../public/img/seta_baixo.png\');">Opções</p>\
     						<table>';
@@ -98,7 +102,7 @@ index.logar = function(){
     				});
     			}
     		});
-    		
+    		//insere o elemento na pagina
     		$('.top .login').html(elemento);
     	}
     	else{
@@ -106,7 +110,9 @@ index.logar = function(){
     		
     		$('.login input[name="senha"]').val('');
     	}
-    }).error(function(){ alert('Não foi possível logar. Verifique a sua conecção com a internet.'); });
+    }).error(function(){ 
+    	alert('Não foi possível logar. Verifique a sua conecção com a internet.'); 
+    });
 };
 
 index.deslogar = function(id){
@@ -136,11 +142,13 @@ index.deslogar = function(id){
     		$('.top .login').html(html);
     	}
     	else{
+    		//erro na coneccao
     		alert('Não foi possível deslogar. Verifique a sua conecção com a internet.');
     	}
 	
-    }).error(function(){ alert('Não foi possível deslogar. Verifique a sua conecção com a internet.'); });
-
+    }).error(function(){
+    	alert('Não foi possível deslogar. Verifique a sua conecção com a internet.'); 
+    });
 };
 
 $(document).ready(function(){
@@ -153,10 +161,6 @@ $(document).ready(function(){
 
 	index.ajustaConteudo();
 	
-	//passa o mouse por cima do menu
-	//$('.top .menu_top, .menu_top_borda').mouseover(index.menuOver);
-	//$('.top .menu_top, .menu_top_borda').mouseleave(index.menuLeave);
-	
 	//aminacao de descer o menu de opcoes
 	$(document).ready(function(){
 		$('.top').css({
@@ -167,11 +171,6 @@ $(document).ready(function(){
 			'-o-transition': 'height 0.7s',
 			'-ms-transition': 'height 0.7s'
 		});
-		/*
-		setInterval(function(){
-			$('.top').css({'overflow': 'initial'});
-		}, 700);
-		*/
 	});
 	
 	//tira a transparencia do menu quando fizer alguma pesquisa(estiver com o campo input selecionado)

@@ -1,4 +1,5 @@
 <?php 
+//idem cadastro
 require_once '../../admin/page.php';
 require_once '../../admin/funcoes.php';
 require_once '../../tabelas/Cidade.php';
@@ -18,7 +19,6 @@ inicio(
 	<script src="cadastro.js" type="text/javascript"></script>'
 );
 
-$cidade = Cidade::selectAll();
 $estado = Estado::selectAll();
 $_SESSION['cidade'] = true;
 $_SESSION['estado'] = true;
@@ -60,7 +60,7 @@ if(isset($_POST['alterar'])){
 				$erro['estado'] = 'Estado e/ou Cidade inválido(s).';
 				$erro['cidade'] = 'Estado e/ou Cidade inválido(s).';
 			}
-			
+			//virifica se as senhas sao iguais
 			$senhaAtual = Usuario::getSenha($_SESSION['usuario']['id']);
 			if(md5($senha) != substr($senhaAtual, 21, 32)){
 				$erro['senha_atual'] = 'Senha inválida.';
@@ -79,6 +79,7 @@ if(isset($_POST['alterar'])){
 				}
 				else $senha = $senhaAtual;
 				
+				//atualiza os dados do usuario
 				$dados = array(
 					'id' => $_SESSION['usuario']['id'],
 					'cidade' => $dados['cidade'],
@@ -99,10 +100,11 @@ if(isset($_POST['alterar'])){
 				//atualiza dados do session
 				unset($dados['senha']);
 				$dados['data_nascimento'] = funcoes::toDataBR($dados['data_nascimento']);
+				//guarda os novos dados no session
 				$_SESSION['usuario'] = $dados;
 				
 				$editar = true;
-				
+				//limpa o post das senhas e session
 				unset($_POST['senha_atual']);
 				unset($_POST['senha']);
 				unset($_POST['confirmar_senha']);
@@ -113,6 +115,7 @@ if(isset($_POST['alterar'])){
 	}
 }
 else{
+	//preenche os campos
 	$_POST = $_SESSION['usuario'];
 	$_POST['master'] = $_SESSION['usuario']['master'] ? 'true' : 'false';
 	$_POST['estado'] = Estado::getIdByCidade($_SESSION['usuario']['cidade']);
@@ -125,7 +128,7 @@ else{
 <?php
 if($editar) echo '<div class="mensagemOk">Edição realizada com sucesso!</div>'; 
 //erro na busca dos dados no banco de dados ou na connecção
-if(is_string($cidade) || is_string($estado)) echo '<div class="mensagemErro">'.connect_bd::erro().'</div>';
+if(is_string($estado)) echo '<div class="mensagemErro">'.connect_bd::erro().'</div>';
 else{
 ?>
 
@@ -305,7 +308,10 @@ else{
 				<div class="erro"><?php echo @$erro['cep']; ?></div>
 			</td>
 		</tr>
-		<?php if(isset($_SESSION['logado']) && $_SESSION['logado'] && isset($_SESSION['usuario']['master']) && $_SESSION['usuario']['master'] == 1){?>
+		<?php 
+		//caso o usuario seja o adminastrador, pode mudar as permissoes do usuario.
+		if(isset($_SESSION['logado']) && $_SESSION['logado'] && isset($_SESSION['usuario']['master']) && $_SESSION['usuario']['master'] == 1){
+		?>
 		<tr>
 			<td>Permissão do usuário *</td>
 			<td>

@@ -28,6 +28,7 @@
 
 .slider-content .imagens img{
 	border: none;
+	opacity: 1 !important;
 }
 
 .slider-content .imagens a{

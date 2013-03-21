@@ -16,7 +16,7 @@ require_once '../../tabelas/SistemaOperacional.php';
 header("Content-type: text/html; charset=iso-8859-1");
 session_start();
 
-//somente usuarios logados como master
+//somente usuarios logados como master(administradores)
 if(!isset($_SESSION['logado']) || !$_SESSION['logado'] || !isset($_SESSION['usuario']['master']) || $_SESSION['usuario']['master'] == 0) header('location: ../index/index.php');
 
 inicio(

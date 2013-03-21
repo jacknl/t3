@@ -6,8 +6,8 @@ class connect_bd{
 		/*
 		$host = 'jacknl-db.my.phpcloud.com:3306';
 		$usuario = 'jacknl';
-		$senha = '';
-		$banco_dados = '';
+		$senha = 'pr12345';
+		$banco_dados = 'jacknl';
 		*/
 		
 		$host = 'localhost';

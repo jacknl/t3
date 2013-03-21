@@ -1,16 +1,19 @@
 <?php
 class funcoes{
 	
+	//converte o formato da data de brasileiro para ingles
 	public static function toDataUS($data){
 		$tmp = explode('/', $data);
 		return $tmp[2].'-'.$tmp[1].'-'.$tmp[0];
 	}
 
+	//converte o formato da data de ingles para brasileiro
 	public static function toDataBR($data){
 		$tmp = explode('-', $data);
 		return $tmp[2].'/'.$tmp[1].'/'.$tmp[0];
 	}
 	
+	//gera uma string randomica do tamanho $max
 	public static function stringRand($max){
 		$str = 'abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUVXWYZ1234567890';
 		$len = strlen($str) - 1;
@@ -20,6 +23,7 @@ class funcoes{
 		return $tmp;
 	}
 	
+	//faz o addslashes e htmlentities de string ou array e retorna uma string ou array, respectivamente.
 	public static function validarCamposBD($dados){
 		if(is_array($dados)){
 			$campos = array();
@@ -30,6 +34,7 @@ class funcoes{
 		return $campos;
 	}
 	
+	//valida os campos para o formulario de cadastro e edicao de jogo.
 	public static function validarCamposjogo($dados, $pc){
 		$erro = array();
 	
@@ -67,6 +72,7 @@ class funcoes{
 				$erro['plataforma'] = 'Plataforma inválido.';
 			}
 			else{
+				//verifica se a opcao 'Computador' esta marcada
 				$tmp = explode(',', $dados['plataforma']);
 				$aux = false;
 				
@@ -76,8 +82,8 @@ class funcoes{
 						break;
 					}
 				}
-				//opcao 'Computador' esta marcada
-				if($aux){
+				
+				if($aux){//caso a opcao 'Computador' esta marcada
 					if(isset($dados['requisitos_minimos']) && strlen($dados['requisitos_minimos']) < 20){
 						$erro['requisitos_minimos'] = 'Requisitos mínimos inválido.';
 					}
@@ -107,7 +113,8 @@ class funcoes{
 		
 		return $erro;
 	}
-		
+	
+	//valida os campos de cadastro e edicao de usuario
 	public static function validarCampos($dados){
 		$erro = array();
 		
@@ -163,8 +170,7 @@ class funcoes{
 				$erro['cpf'] = 'CPF inválido.';
 			}
 			else{
-				// Calcula os digitos verificadores para verificar se o
-				// CPF é válido
+				// Calcula os digitos verificadores(os dois ultimos digitos)
 				for($t = 9; $t < 11; $t++){
 					for($d = 0, $c = 0; $c < $t; $c++){
 						$d += $dados['cpf']{$c} * (($t + 1) - $c);
@@ -210,6 +216,7 @@ class funcoes{
 		return $erro;
 	}
 	
+	//valida o nome do jogo
 	public static function isNameJogo($nome){
 		$pattern = '/^[ .a-zA-ZáéíóúÁÉÍÓÚ()0-9]+$/';
 		if(preg_match($pattern, $nome)){
@@ -219,6 +226,7 @@ class funcoes{
 		}
 	}
 	
+	//valida o nome do usuario
 	public static function isName($nome){
 		$pattern = '/^[ .a-zA-ZáéíóúÁÉÍÓÚ]+$/';
 		if(preg_match($pattern, $nome)){
@@ -228,6 +236,7 @@ class funcoes{
 		}
 	}
 	
+	//valida o login do usuario
 	public static function isLogin($login){
 		$pattern = '/^[_a-zA-Z-0-9]+$/';
 		if(preg_match($pattern, $login)){
@@ -237,6 +246,7 @@ class funcoes{
 		}
 	}
 	
+	//valida o e-mail do usuario
 	public static function isEmail($email){
 		$pattern = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
 		if(preg_match($pattern, $email)){

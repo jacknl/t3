@@ -1,5 +1,17 @@
 <?php
+/*
+ * Na funcao de select e multiselect recebe como parametro
+ * vamos definir elemento como o campo de select/multiselect
+ * funcao(1, 2, 3, 4, 5)
+ * 1: id do elemento, deve ser unico na pagina;
+ * 2: serao as opcoes que serao exibidas, por padrao sera uma array vazia. Recebe uma array do seguinte formato arra('id' => valor(value) da opcao, 'nome' => nome da opcao que sera exibida);
+ * 3: abilitar a opcao(input) para adicionar uma nova opcao e o botao de remover, por padrao é falso. Recebe uma string com o link para a pagina onde sera adicionado a nova opcao no banco;
+ * 4: recebe o nome que sera exibido no input, por padrao e 'Adicionar';
+ * 5: recebe a(s) opcao(oes) que serao marcadas as opcoes, por padrao sera false. Recebe uma string com o(s) valor(es) da(s) opcao(oes) que aparecem no indice 'id' da array do item 2, recebe multiplos valores separados por virgula;
+ */
 
+
+//marca a opcao
 function multiselectMarcaOpcao($marca, $opcoes){
 	foreach($opcoes as $value){
 		if($value == $marca) return 'checked';

@@ -350,6 +350,7 @@ body{
 	z-index: 13;
 	position: relative;
 	bottom: 0px;
+	min-width: 1100px;
 }
 
 .rodape div{

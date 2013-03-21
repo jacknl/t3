@@ -1,5 +1,7 @@
 <?php
-function inicio($head = ''){	
+
+//cabecalho da pagina, recebe como parametro arquivos que serao adicionados no head
+function inicio($head = ''){
 echo'<!DOCTYPE html>
 	<html>
 	<head>
@@ -41,6 +43,7 @@ echo'<!DOCTYPE html>
 			<div>';
 }
 
+//rodape da pagina
 function fim(){
 	echo   '</div>
 		</div>

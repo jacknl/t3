@@ -4,9 +4,10 @@ require_once '../../admin/funcoes.php';
 require_once '../../tabelas/Usuario.php';
 session_start();
 
-//verifica se esta online
+//verifica se o usuario esta online
 if(!isset($_SESSION['logado']) || !$_SESSION['logado']) header('Location: ../index/index.php');
 
+//cabecalho
 inicio(
 	'<link rel="stylesheet" href="../../public/select/select.css" type="text/css" media="screen" title="default">
 	<link rel="stylesheet" href="cadastro.css" type="text/css" media="screen" title="default">
@@ -30,9 +31,10 @@ if(isset($_POST['remover'])){
 		unset($_SESSION['usuario']);
 		unset($_SESSION['logado']);
 		unset($_SESSION['logout']);
-	}	
+	}
 }
 
+//formulario com o campo senha 
 ?>
 
 <div class="titulo">Remover Usuário</div>
